@@ -31,6 +31,7 @@ int main(){
     }
     else
         cout << "Error opening file" << endl;
+    infile.close();
 
     cout << "The playlist is currently ";
     if (playlist.empty())
@@ -43,15 +44,8 @@ int main(){
 
     // Outputting data from playlist array
     cout << "Playlist contents:" << endl;
-    for (const auto & song : playlist) {
+    for (const auto & song : playlist)
         cout << song << endl;
-    }
-
-    cout << "The playlist is currently ";
-    if (playlist.empty())
-        cout << "empty" << endl;
-    else
-        cout << "not empty" << endl;
 
     // Outputting specific songs from the playlist
     cout << "The first song in the playlist is: " << playlist.front() << endl;
@@ -62,19 +56,28 @@ int main(){
     sort(playlist.begin(), playlist.end());
 
     cout << "Sorted playlist:" << endl;
-    for (const auto & song : playlist) {
+    for (const auto & song : playlist)
         cout << song << endl;
-    }
 
-    // Reversing playlist
-    sort(playist.rbegin(), playist.rend());
+    // Sorting in reverse ASCII decimal value order
+    cout << "Reversed playlist:" << endl;
+    sort(playlist.rbegin(), playlist.rend());
+    for (const auto & song : playlist)
+        cout << song << endl;
 
     // Looking for specific song in playlist
     string target = "Dreams";
     array<string, PLAYLIST_SIZE>::iterator it;
     it = find(playlist.begin(), playlist.end(), target);
+    cout << "The target song " << target;
+    if (it != playlist.end())
+        cout << " was found at position " << it - playlist.begin() << endl;
+    else
+        cout << " was not found" << endl;
 
-    infile.close();
+    // Creating a new playlist filled with a specific song
+    array<string, PLAYLIST_SIZE> paprikaPlaylist;
+    fill(paprikaPlaylist.begin(), paprikaPlaylist.end(), "Paprika");
 
     return 0;
 }
