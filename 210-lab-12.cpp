@@ -13,10 +13,11 @@ struct SongData {
     string artist;
 };
 
-// displaySongData() outputs the information from the SongData struct
-// arguments: a SongData struct object
+// TODO: Should this be a function or just go in main???
+// displayPlaylist() outputs the all songs from an array of SongData struct objects
+// arguments: an array of SongData struct objects of size PLAYLIST_SIZE
 // returns: nothing
-void displaySongData(SongData);
+void displayPlaylist(array<SongData, PLAYLIST_SIZE>&);
 
 int main(){
     // Reading data from playlist.txt
@@ -43,6 +44,8 @@ int main(){
     return 0;
 }
 
-void displaySongData(SongData song) {
+// Passing by constant reference
+void displayPlaylist(array<SongData, PLAYLIST_SIZE>&) {
+
 
 }
