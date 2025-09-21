@@ -1,16 +1,29 @@
 // COMSC-210 | Lab 12 | Dainiz Almazan
 // IDE used: CLion
 
-/*
-Write a program that will exercise STD::array functions. Code a real-world simulation of something that could be simulated by an array. The requirements are:
-
-	Use an STD::array
-	Have an external data file with at least 30 elements in it
-	Read the data into an STD::array
-	Use a large variety of the <array> member functions from this module to demonstrate your understanding of the STD::array.
-
-*/
+#include <array>
+#include <iostream>
+#include <fstream>
+using namespace std;
 
 int main(){
+    // Reading data from playlist.txt
+    int numSongs;
+    string tempArtist, tempSong;
+    ifstream infile;
+    infile.open("playlist.txt");
+
+    if (infile.good()) {
+        // The first line of the file contains the number of items that will be in the array i.e. songs in the playlist
+        //infile >> numSongs;
+        array<string, numSongs> playlist;
+
+
+    }
+    else
+        cout << "Error opening file" << endl;
+
+    infile.close();
+
     return 0;
 }
