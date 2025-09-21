@@ -22,7 +22,7 @@ int main(){
     cout << "Reading data from file...";
     string tempSong;
     ifstream infile;
-    infile.open("playlist_songs_only.txt");
+    infile.open("playlist.txt");
     if (infile.good()) {
         for (int i = 0; i < PLAYLIST_SIZE; i++) {
             getline(infile, tempSong);
