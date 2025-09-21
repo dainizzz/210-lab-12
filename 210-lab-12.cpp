@@ -6,24 +6,34 @@
 #include <fstream>
 using namespace std;
 
+const int PLAYLIST_SIZE = 30;
+
+struct SongData {
+    string title;
+    string artist;
+};
+
+// displaySongData() outputs the information from the SongData struct
+// arguments: a SongData struct object
+// returns: nothing
+void displaySongData(SongData);
+
 int main(){
     // Reading data from playlist.txt
-    int numSongs;
-    string tempSong;
+    string tempArtist, tempSong;
     ifstream infile;
     infile.open("playlist.txt");
 
     if (infile.good()) {
-        // The first line of the file contains the number of items that will be in the array i.e. songs in the playlist
-        infile >> numSongs;
-        array<string, numSongs> playlist;
+        array<SongData, PLAYLIST_SIZE> playlist;
         infile.ignore();
-        for (int i = 0; i < numSongs; i++) {
+        for (int i = 0; i < PLAYLIST_SIZE; i++) {
+            // Arists and songs are on separate lines with artists before songs
+            getline(infile, tempArtist);
             getline(infile, tempSong);
-            playlist[i] = tempSong;
+            playlist[i].artist = tempArtist;
+            playlist[i].title = tempSong;
         }
-
-
     }
     else
         cout << "Error opening file" << endl;
@@ -31,4 +41,8 @@ int main(){
     infile.close();
 
     return 0;
+}
+
+void displaySongData(SongData song) {
+
 }
