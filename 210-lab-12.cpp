@@ -1,6 +1,7 @@
 // COMSC-210 | Lab 12 | Dainiz Almazan
 // IDE used: CLion
 
+#include <algorithm>
 #include <array>
 #include <iostream>
 #include <fstream>
@@ -56,6 +57,22 @@ int main(){
     cout << "The first song in the playlist is: " << playlist.front() << endl;
     cout << "The last song in the playlist is: " << playlist.back() << endl;
     cout << "The 20th song in the playlist is: " << playlist.at(19) << endl;
+
+    // Sorting playlist in order of ASCII decimal value
+    sort(playlist.begin(), playlist.end());
+
+    cout << "Sorted playlist:" << endl;
+    for (const auto & song : playlist) {
+        cout << song << endl;
+    }
+
+    // Reversing playlist
+    sort(playist.rbegin(), playist.rend());
+
+    // Looking for specific song in playlist
+    string target = "Dreams";
+    array<string, PLAYLIST_SIZE>::iterator it;
+    it = find(playlist.begin(), playlist.end(), target);
 
     infile.close();
 
