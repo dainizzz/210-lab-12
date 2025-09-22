@@ -13,7 +13,7 @@ int main(){
     // Initializing array
     array<string, PLAYLIST_SIZE> playlist;
     cout << "The playlist is currently ";
-    if (playlist.empty())
+    if (playlist.empty() == 0)
         cout << "empty" << endl;
     else
         cout << "not empty" << endl;
@@ -34,7 +34,7 @@ int main(){
     infile.close();
 
     cout << "The playlist is currently ";
-    if (playlist.empty())
+    if (playlist.empty() == 0)
         cout << "empty" << endl;
     else
         cout << "not empty" << endl;
@@ -45,7 +45,7 @@ int main(){
     // Outputting data from playlist array
     cout << "Playlist contents:" << endl;
     for (const auto & song : playlist)
-        cout << song << endl;
+        cout << song << '\t';
 
     // Outputting specific songs from the playlist
     cout << "The first song in the playlist is: " << playlist.front() << endl;
@@ -57,13 +57,13 @@ int main(){
 
     cout << "Sorted playlist:" << endl;
     for (const auto & song : playlist)
-        cout << song << endl;
+        cout << song << '\t';
 
     // Sorting in reverse ASCII decimal value order
     cout << "Reversed playlist:" << endl;
     sort(playlist.rbegin(), playlist.rend());
     for (const auto & song : playlist)
-        cout << song << endl;
+        cout << song << '\t';
 
     // Looking for specific song in playlist
     string target = "Dreams";
@@ -78,6 +78,11 @@ int main(){
     // Creating a new playlist filled with a specific song
     array<string, PLAYLIST_SIZE> paprikaPlaylist;
     fill(paprikaPlaylist.begin(), paprikaPlaylist.end(), "Paprika");
+    // Swapping the original playlist with the new playlist
+    playlist.swap(paprikaPlaylist);
+    cout << "The swapped playist now contains:" << endl;
+    for (const auto & song : playlist)
+        cout << song << '\t';
 
     return 0;
 }
