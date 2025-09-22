@@ -10,7 +10,7 @@ using namespace std;
 const int PLAYLIST_SIZE = 30;
 
 int main() {
-	// Initializing array
+	// Initializing array and outputting address
 	array<string, PLAYLIST_SIZE> playlist;
 	cout << "Playlist created at address: " << playlist.data() << endl;
 
@@ -57,23 +57,25 @@ int main() {
 	for (const auto &song: playlist)
 		cout << song << '\t';
 
-	// Looking for specific song in playlist using iterator and find
+	// Looking for specific song in playlist using iterator and find()
 	string target = "Dreams";
 	array<string, PLAYLIST_SIZE>::iterator it;
 	it = find(playlist.begin(), playlist.end(), target);
-	cout << endl << "The target song " << target;
+	cout << endl << "The target song \"" << target;
 	if (it != playlist.end())
-		cout << " was found at position " << it - playlist.begin() << endl;
+		cout << "\" was found at position: " << it - playlist.begin() << endl;
 	else
 		cout << " was not found" << endl;
 
-	// Creating a new playlist filled with a specific song
+	// Creating a new playlist filled with a specific song using fill()
 	array<string, PLAYLIST_SIZE> paprikaPlaylist;
+	cout << "New playlist created at address: " << paprikaPlaylist.data() << endl;
 	fill(paprikaPlaylist.begin(), paprikaPlaylist.end(), "Paprika");
 
 	// Swapping the original playlist with the new playlist & outputting modified playlist
+	cout << "Swapping original playlist contents with new playlist contents..." << endl;
 	playlist.swap(paprikaPlaylist);
-	cout << "The swapped playlist now contains:" << endl;
+	cout << "The original playlist now contains:" << endl;
 	for (const auto &song: playlist)
 		cout << song << '\t';
 
