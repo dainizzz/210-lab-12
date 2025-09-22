@@ -12,11 +12,7 @@ const int PLAYLIST_SIZE = 30;
 int main(){
     // Initializing array
     array<string, PLAYLIST_SIZE> playlist;
-    cout << "The playlist is currently ";
-    if (playlist.empty() == 0)
-        cout << "empty" << endl;
-    else
-        cout << "not empty" << endl;
+    cout << "Checking if playlist is empty..." << boolalpha << playlist.empty() << endl;
 
     // Reading data from playlist.txt
     cout << "Reading data from file...";
@@ -32,12 +28,6 @@ int main(){
     else
         cout << "Error opening file" << endl;
     infile.close();
-
-    cout << "The playlist is currently ";
-    if (playlist.empty() == 0)
-        cout << "empty" << endl;
-    else
-        cout << "not empty" << endl;
 
     // Outputting the size of the array
     cout << "The number of songs in the playlist is: " << playlist.size() << endl;
