@@ -12,10 +12,10 @@ const int PLAYLIST_SIZE = 30;
 int main(){
     // Initializing array
     array<string, PLAYLIST_SIZE> playlist;
-    cout << "Checking if playlist is empty..." << boolalpha << playlist.empty() << endl;
+    cout << "Playlist created at address: " << playlist.data() << endl;
 
     // Reading data from playlist.txt
-    cout << "Reading data from file...";
+    cout << "Reading data from file... ";
     string tempSong;
     ifstream infile;
     infile.open("playlist.txt");
@@ -24,21 +24,25 @@ int main(){
             getline(infile, tempSong);
             playlist[i] = tempSong;
         }
+        cout << "Done!" << endl;
     }
     else
         cout << "Error opening file" << endl;
     infile.close();
 
+    // Outputting whether array is empty to see if items were added correctly
+    cout << "Checking if playlist is empty... " << boolalpha << playlist.empty() << endl;
+
     // Outputting the size of the array
     cout << "The number of songs in the playlist is: " << playlist.size() << endl;
 
     // Outputting data from playlist array
-    cout << "Playlist contents:" << endl;
+    cout << "Playlist Contents:" << endl;
     for (const auto & song : playlist)
         cout << song << '\t';
 
     // Outputting specific songs from the playlist
-    cout << "The first song in the playlist is: " << playlist.front() << endl;
+    cout << endl << "The first song in the playlist is: " << playlist.front() << endl;
     cout << "The last song in the playlist is: " << playlist.back() << endl;
     cout << "The 20th song in the playlist is: " << playlist.at(19) << endl;
 
